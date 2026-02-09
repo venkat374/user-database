@@ -3,7 +3,7 @@ import { useParams } from "react-router";
 
 export const UserShow = () => {
   const { id } = useParams();
-  const { data, isLoading } = useOne({
+  const { query, result } = useOne({
     resource: "users",
     id: id!,
   });
@@ -11,11 +11,11 @@ export const UserShow = () => {
   const { mutate } = useDelete();
   const { list } = useNavigation();
 
-  if (isLoading) {
+  if (query.isLoading) {
     return <div>Loading...</div>;
   }
 
-  const user = data?.data;
+  const user = query.data?.data;
 
   const handleDelete = () => {
     if (!confirm("Delete this user?")) return;

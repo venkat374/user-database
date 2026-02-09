@@ -4,7 +4,8 @@ import { useState, useEffect } from "react";
 
 export const UserEdit = () => {
   const { id } = useParams();
-  const { query, result } = useOne({
+
+  const { query } = useOne({
     resource: "users",
     id: id!,
   });
@@ -14,15 +15,17 @@ export const UserEdit = () => {
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [initialized, setInitialized] = useState(false);
 
   useEffect(() => {
-    if (query?.data) {
-      setName((query.data as any)?.name ?? "");
-      setEmail((query.data as any)?.email ?? "");
+    if (!initialized && query.data?.data) {
+      setName((query.data.data as any).name ?? "");
+      setEmail((query.data.data as any).email ?? "");
+      setInitialized(true);
     }
-  }, [query]);
+  }, [query.data, initialized]);
 
-  if (result) {
+  if (query.isLoading) {
     return <div>Loading...</div>;
   }
 

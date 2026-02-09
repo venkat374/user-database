@@ -1,11 +1,14 @@
-import { useList, useNavigation } from "@refinedev/core";
+import { useList, useNavigation, useDelete } from "@refinedev/core";
 
 export const UserList = () => {
   const { query, result } = useList({
     resource: "users",
   });
 
+
+
   const { show, edit, create } = useNavigation();
+  const { mutate: deleteOne } = useDelete();
 
   if (query.isLoading) {
     return <div>Loading...</div>;
@@ -22,7 +25,7 @@ export const UserList = () => {
       <ul>
         {result.data?.map((user: any) => (
           <li key={user.id}>
-            <strong>{user.name ?? "No name"}</strong>
+            {user.name ?? "No name"}
             <br />
             {user.email ?? "No email"}
             <br />
@@ -33,6 +36,10 @@ export const UserList = () => {
 
             <button onClick={() => edit("users", user.id)}>
               Edit
+            </button>
+
+            <button onClick={() => deleteOne({resource: "users", id: user.id})}>
+            delete
             </button>
           </li>
         ))}

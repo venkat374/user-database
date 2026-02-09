@@ -27,6 +27,6 @@ export const authProvider: AuthProvider = {
   },
 
   onError: async () => {
-    return { error: null };
+    return { error: undefined };
   },
 };
