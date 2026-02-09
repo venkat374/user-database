@@ -8,11 +8,13 @@
     "@refinedev/core": "^5.0.8",
     "@refinedev/devtools": "^2.0.1",
     "@refinedev/kbar": "^2.0.0",
+    "@refinedev/react-router": "^2.0.0",
+    "@refinedev/rest": "^2.1.0",
+    "firebase": "^12.9.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-router": "^7.0.2",
-    "@refinedev/rest": "^2.1.0",
-    "@refinedev/react-router": "^2.0.0"
+    "refine-firebase": "^1.2.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",
@@ -26,9 +28,9 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^16.0.0",
+    "typescript": "^5.8.3",
     "typescript-eslint": "^8.30.1",
-    "vite": "^6.3.5",
-    "typescript": "^5.8.3"
+    "vite": "^6.3.5"
   },
   "scripts": {
     "dev": "refine dev",
